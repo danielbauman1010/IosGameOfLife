@@ -1,3 +1,3 @@
 # IosGameOfLife
 
-hello daniel
+An IOS Version of game of life
