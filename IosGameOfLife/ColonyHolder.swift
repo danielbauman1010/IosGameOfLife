@@ -10,16 +10,39 @@ import Foundation
 import UIKit
 
 class ColonyHolder {
-    var allColonies = [Colony]()
+    var allColonies: [String: Colony]
     // This will be the model --- here will will have methods to add, remove, or move the order of colonies
     
     init () {
-        var col = Colony()
-        col.setCellAlive(5, yCoor: 5)
-        col.setCellAlive(5, yCoor: 6)
-        col.setCellAlive(5, yCoor: 7)
-        col.setCellAlive(6, yCoor: 6)
-        allColonies.append(col)
-        // I have added a fake colony just for testing
+        allColonies = [String: Colony]()
+        allColonies["Colony0"] = Colony()
     }
+    
+    func addColony(colonyName: String) {
+        allColonies[colonyName] = Colony()
+    }
+    
+    func setCellAliveInColony(colonyName: String, coordinate: Coordinate)-> Bool {
+        if let colony = allColonies[colonyName] {
+            colony.setCellAlive(coordinate.getX(), yCoor: coordinate.getY())
+            return true
+        }
+        return false
+    }
+    
+    func setCellDeadInColony(colonyName: String, coordinate: Coordinate)->Bool {
+        if let colony = allColonies[colonyName] {
+            colony.setCellDead(coordinate.getX(), yCoor: coordinate.getY())
+            return true
+        }
+        return false
+    }
+    func evolveColony(colonyName: String)->Bool {
+        if let colony = allColonies[colonyName] {
+            colony.evolve()
+            return true
+        }
+        return false
+    }
+    
 }
