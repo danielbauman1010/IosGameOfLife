@@ -45,4 +45,13 @@ class ColonyHolder {
         return false
     }
     
+    func getColonyForIndex(index: Int) -> Colony? {
+        var i = 0
+        for v in allColonies.values {
+            if i == index { return v }
+            i += 1
+        }
+        return nil
+    }
+    
 }

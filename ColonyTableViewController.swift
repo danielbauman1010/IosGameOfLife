@@ -36,9 +36,11 @@ class ColonyTableViewController: UITableViewController {
         if segue.identifier == "ShowColony" {
             if let row = tableView.indexPathForSelectedRow?.row {
                 // Get colony associate w/ that row
-                let colony = colonyHolder.allColonies[row]
-                let detailViewController = segue.destinationViewController as! DetailViewController
-                detailViewController.colony = colony
+                //let colony = colonyHolder.allColonies[row]
+                if let colony = colonyHolder.getColonyForIndex(row) {
+                    let detailViewController = segue.destinationViewController as! DetailViewController
+                    detailViewController.colony = colony
+                }
             }
         }
     }
