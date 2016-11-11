@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8403059A1DD62D9600A15EBF /* ColonyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840305991DD62D9600A15EBF /* ColonyTableViewController.swift */; };
+		8403059C1DD62F2800A15EBF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403059B1DD62F2800A15EBF /* DetailViewController.swift */; };
+		8403059E1DD62FF800A15EBF /* ColonyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403059D1DD62FF800A15EBF /* ColonyHolder.swift */; };
 		84B29D611DD39E31001BC75B /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29D601DD39E31001BC75B /* Colony.swift */; };
 		84B29D631DD39E4A001BC75B /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29D621DD39E4A001BC75B /* Coordinate.swift */; };
 		958630AD1DD1142800A93B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958630AC1DD1142800A93B2D /* AppDelegate.swift */; };
-		958630AF1DD1142800A93B2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958630AE1DD1142800A93B2D /* ViewController.swift */; };
 		958630B21DD1142800A93B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958630B01DD1142800A93B2D /* Main.storyboard */; };
 		958630B41DD1142800A93B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958630B31DD1142800A93B2D /* Assets.xcassets */; };
 		958630B71DD1142800A93B2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958630B51DD1142800A93B2D /* LaunchScreen.storyboard */; };
@@ -36,11 +38,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840305991DD62D9600A15EBF /* ColonyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColonyTableViewController.swift; path = ../ColonyTableViewController.swift; sourceTree = "<group>"; };
+		8403059B1DD62F2800A15EBF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8403059D1DD62FF800A15EBF /* ColonyHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColonyHolder.swift; sourceTree = "<group>"; };
 		84B29D601DD39E31001BC75B /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
 		84B29D621DD39E4A001BC75B /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		958630A91DD1142800A93B2D /* IosGameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosGameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958630AC1DD1142800A93B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		958630AE1DD1142800A93B2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		958630B11DD1142800A93B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		958630B31DD1142800A93B2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		958630B61DD1142800A93B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,11 +105,13 @@
 		958630AB1DD1142800A93B2D /* IosGameOfLife */ = {
 			isa = PBXGroup;
 			children = (
+				840305991DD62D9600A15EBF /* ColonyTableViewController.swift */,
+				8403059D1DD62FF800A15EBF /* ColonyHolder.swift */,
 				958630AC1DD1142800A93B2D /* AppDelegate.swift */,
-				958630AE1DD1142800A93B2D /* ViewController.swift */,
 				84B29D601DD39E31001BC75B /* Colony.swift */,
 				84B29D621DD39E4A001BC75B /* Coordinate.swift */,
 				958630B01DD1142800A93B2D /* Main.storyboard */,
+				8403059B1DD62F2800A15EBF /* DetailViewController.swift */,
 				958630B31DD1142800A93B2D /* Assets.xcassets */,
 				958630B51DD1142800A93B2D /* LaunchScreen.storyboard */,
 				958630B81DD1142800A93B2D /* Info.plist */,
@@ -261,10 +267,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				958630AF1DD1142800A93B2D /* ViewController.swift in Sources */,
 				958630AD1DD1142800A93B2D /* AppDelegate.swift in Sources */,
+				8403059A1DD62D9600A15EBF /* ColonyTableViewController.swift in Sources */,
+				8403059C1DD62F2800A15EBF /* DetailViewController.swift in Sources */,
 				84B29D611DD39E31001BC75B /* Colony.swift in Sources */,
 				84B29D631DD39E4A001BC75B /* Coordinate.swift in Sources */,
+				8403059E1DD62FF800A15EBF /* ColonyHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
