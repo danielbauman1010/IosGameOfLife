@@ -33,8 +33,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Colonies" id="nDP-x9-be8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="LMx-XE-fKX"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GHI-67-R3Z"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GHI-67-R3Z">
+                            <connections>
+                                <action selector="addNewColony:" destination="etO-vr-sYT" id="gn2-x3-YF5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGp-nI-SUj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // this is where we set the outlets .... Katie will do this soon
+        // this is where we set the outlets ..... Katie will do this soon (excpet for the colonyView and coordinateText .... Daniel can do this??)
     }
     
 }
