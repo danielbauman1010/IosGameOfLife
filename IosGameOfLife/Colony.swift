@@ -14,12 +14,13 @@ class Colony: CustomStringConvertible{
     
     var genNumber: Int = 0
     
-    let yMax = 20
-    let xMax = 20
+    let yMax = 80
+    let xMax = 80
+    var wrapping: Bool = false
     
     func setCellAlive(xCoor: Int, yCoor: Int) {
-        if xCoor < 20 && xCoor >= 0 {
-            if yCoor < 20 && yCoor >= 0 {
+        if xCoor < xMax && xCoor >= 0 {
+            if yCoor < yMax && yCoor >= 0 {
                 let coor = Coordinate(x: xCoor, y: yCoor)
                 cells.insert(coor)
             }
@@ -44,6 +45,24 @@ class Colony: CustomStringConvertible{
         return false
     }
     
+    func wrap(x: Int, y: Int)-> Coordinate { // a function that converts all cells that exceed the borders to be inside the opposite border(wrapping)
+        var newX = x
+        var newY = y
+        if x == -1 {
+            newX = xMax-1
+        }
+        if x == xMax {
+            newX = 0
+        }
+        if y == -1 {
+            newY = yMax-1
+        }
+        if y == yMax {
+            newY = 0
+        }
+        return Coordinate(x: newX, y: newY)
+    }
+    
     func getNeighbors(x: Int, y: Int) -> Set<Coordinate> {
         var neighbors: Set <Coordinate> = [];
         neighbors.insert(Coordinate(x: x + 1, y: y));
@@ -54,6 +73,9 @@ class Colony: CustomStringConvertible{
         neighbors.insert(Coordinate(x: x - 1, y: y - 1));
         neighbors.insert(Coordinate(x: x + 1, y: y - 1));
         neighbors.insert(Coordinate(x: x - 1, y: y + 1));
+        if wrapping { //converts all cells to wrapped form
+            neighbors = Set(neighbors.map({wrap($0.getX(), y: $0.getY())}))
+        }
         return neighbors;
     }
     
@@ -66,8 +88,8 @@ class Colony: CustomStringConvertible{
         var temp: Set<Coordinate> = []
         
         // Populating toCheck with the cells toCheck
-        cells.map({
-            getNeighbors($0.x, y: $0.y).map(
+        let _ = cells.map({
+            let _ = getNeighbors($0.x, y: $0.y).map(
                 {t in toCheck.insert(t)})
             toCheck.insert($0)
         })
@@ -75,9 +97,9 @@ class Colony: CustomStringConvertible{
         
         // Count the number of neighbors in the set for each coordinate and apply rules
         
-        toCheck.map(
+        let _ = toCheck.map(
             {var alive = 0
-                getNeighbors($0.x, y: $0.y).map(
+                let _ = getNeighbors($0.x, y: $0.y).map(
                     {t in if cells.contains(t) {alive += 1}})
                 if !cells.contains($0) {
                     // Was not originally alive
@@ -96,7 +118,7 @@ class Colony: CustomStringConvertible{
         // Convert the newCells to the actual cells
         
         cells.removeAll();
-        newCells.map({setCellAlive($0.x, yCoor: $0.y)})
+        let _ = newCells.map({setCellAlive($0.x, yCoor: $0.y)})
         
     }
     
@@ -108,11 +130,19 @@ class Colony: CustomStringConvertible{
         }
     }
     
+    func useWrapping(){
+        self.wrapping = true
+    }
+    
+    func dontUseWrapping(){
+        self.wrapping = false
+    }
+    
     var description: String {
         var output = ""
         output += "Generation #" + String(genNumber) + "\n\n"
-        for x in 0 ..< 20 {
-            for y in 0 ..< 20 {
+        for x in 0 ..< xMax {
+            for y in 0 ..< yMax {
                 output += coorString(x, y: y)
             }
             output += "\n"
