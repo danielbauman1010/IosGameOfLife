@@ -12,6 +12,7 @@
 		8403059E1DD62FF800A15EBF /* ColonyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403059D1DD62FF800A15EBF /* ColonyHolder.swift */; };
 		84B29D611DD39E31001BC75B /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29D601DD39E31001BC75B /* Colony.swift */; };
 		84B29D631DD39E4A001BC75B /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B29D621DD39E4A001BC75B /* Coordinate.swift */; };
+		95428F981DD644CB009D91D1 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95428F971DD644CB009D91D1 /* EditViewController.swift */; };
 		958630AD1DD1142800A93B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958630AC1DD1142800A93B2D /* AppDelegate.swift */; };
 		958630B21DD1142800A93B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958630B01DD1142800A93B2D /* Main.storyboard */; };
 		958630B41DD1142800A93B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958630B31DD1142800A93B2D /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		8403059D1DD62FF800A15EBF /* ColonyHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColonyHolder.swift; sourceTree = "<group>"; };
 		84B29D601DD39E31001BC75B /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
 		84B29D621DD39E4A001BC75B /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		95428F971DD644CB009D91D1 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		958630A91DD1142800A93B2D /* IosGameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosGameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958630AC1DD1142800A93B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		958630B11DD1142800A93B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				840305991DD62D9600A15EBF /* ColonyTableViewController.swift */,
+				95428F971DD644CB009D91D1 /* EditViewController.swift */,
 				8403059D1DD62FF800A15EBF /* ColonyHolder.swift */,
 				958630AC1DD1142800A93B2D /* AppDelegate.swift */,
 				84B29D601DD39E31001BC75B /* Colony.swift */,
@@ -273,6 +276,7 @@
 				84B29D611DD39E31001BC75B /* Colony.swift in Sources */,
 				84B29D631DD39E4A001BC75B /* Coordinate.swift in Sources */,
 				8403059E1DD62FF800A15EBF /* ColonyHolder.swift in Sources */,
+				95428F981DD644CB009D91D1 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
