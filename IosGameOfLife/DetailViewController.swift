@@ -33,20 +33,21 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // this is where we set the outlets ..... Katie will do this soon (excpet for the colonyView and coordinateText .... Daniel can do this??)
+        // this is where we set the outlets .... Daniel can do this for colonyView and coordinateText??)
+        numEvolves.minimumValue = 0
+        numEvolves.maximumValue = 1000
         numEvolves.value = 0
-        textNumEvolves.text = "\(numEvolves.value)"
+        textNumEvolves.text = String(Int(numEvolves.value))
         // Speed = # of evolutions per second
         speed.minimumValue = 0
         speed.maximumValue = 5
         speed.value = 0
-        textSpeed.text = "\(speed.value)"
+        textSpeed.text = String(Int(speed.value))
         wrapping.on = false
     }
     
     @IBAction func evolveSliderChanged(sender: UISlider) {
-        var value = Int(sender.value)
-        textNumEvolves.text = "\(value)"
+        textNumEvolves.text = String(Int(sender.value))
         currentEvolveNumber = 0
     }
     
