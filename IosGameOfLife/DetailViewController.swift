@@ -29,10 +29,21 @@ class DetailViewController: UIViewController {
     
     var currentEvolveNumber: Int = 0
     
+    var minX,minY,maxX,maxY,height,width: CGFloat?
     // NOTE: the name of the colony will automatically appear as the header --- no need to code this
+    var cells: [Coordinate: UIView]!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func findBounds() {
+        minX = colonyView.bounds.minX
+        minY = colonyView.bounds.minY
+        maxX = colonyView.bounds.maxX
+        maxY = colonyView.bounds.maxY
+        width = CGFloat(Int(colonyView.bounds.width)/60)
+        height = CGFloat(Int(colonyView.bounds.height)/60)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         // this is where we set the outlets .... Daniel can do this for colonyView and coordinateText??)
         numEvolves.minimumValue = 0
         numEvolves.maximumValue = 1000
@@ -44,6 +55,34 @@ class DetailViewController: UIViewController {
         speed.value = 0
         textSpeed.text = String(Int(speed.value))
         wrapping.on = false
+        coordinateText.text = "(x,y)"
+        //set example colony
+        colony = Colony()
+        colony.setCellAlive(5, yCoor: 19)
+        colony.setCellAlive(5, yCoor: 20)
+        colony.setCellAlive(6, yCoor: 19)
+        colony.setCellAlive(6, yCoor: 21)
+        
+        //setup for colonyView:
+        cells = [Coordinate: UIView]()
+        findBounds()
+        for x in 0..<60 {
+            for y in 0..<60 {
+                let cell = CGRect(x: CGFloat(Int(minX!)+Int(width!)*x), y: CGFloat(Int(minY!)+Int(height!)*y), width: width!, height: height!)
+                let cellView = UIView(frame: cell)
+                cellView.layer.borderColor = UIColor.blackColor().CGColor
+                cellView.layer.borderWidth = 1.0
+                colonyView.addSubview(cellView)
+                cells[Coordinate(x: x, y: y)] = cellView
+            }
+        }
+        drawColony()
+    }
+    
+    func drawColony() {
+        for cell in colony.cells {
+            cells[cell]?.backgroundColor = UIColor.blackColor()
+        }
     }
     
     @IBAction func evolveSliderChanged(sender: UISlider) {
@@ -52,7 +91,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func speedSliderChanged(sender: UISlider) {
-        var value = Int(sender.value)
+        let value = Int(sender.value)
         textSpeed.text = "\(value)"
         startTimer(NSTimeInterval(value))
     }
@@ -60,7 +99,7 @@ class DetailViewController: UIViewController {
     func startTimer(interval: NSTimeInterval) {
         timer = NSTimer.scheduledTimerWithTimeInterval(interval,
                                                        target: self,
-                                                       selector: "onTick:",
+                                                       selector: #selector(DetailViewController.onTick(_:)),
                                                        userInfo: nil,
                                                        repeats: false)
     }
@@ -68,6 +107,7 @@ class DetailViewController: UIViewController {
     func onTick(timer:NSTimer){
         if currentEvolveNumber < Int(numEvolves!.value) {
             colony.evolve() // NOTE, colony is a class, so this should update no matter what (reference, not value type)
+            drawColony()
             currentEvolveNumber += 1
         }
     }
