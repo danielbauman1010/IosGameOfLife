@@ -58,10 +58,10 @@ class DetailViewController: UIViewController {
         coordinateText.text = "(x,y)"
         //set example colony
         colony = Colony()
-        colony.setCellAlive(5, yCoor: 19)
-        colony.setCellAlive(5, yCoor: 20)
-        colony.setCellAlive(6, yCoor: 19)
-        colony.setCellAlive(6, yCoor: 21)
+        colony.setCellAlive(17, yCoor: 5)
+        colony.setCellAlive(18, yCoor: 5)
+        colony.setCellAlive(19, yCoor: 5)
+        colony.setCellAlive(18, yCoor: 6)
         
         //setup for colonyView:
         cells = [Coordinate: UIView]()
@@ -80,8 +80,15 @@ class DetailViewController: UIViewController {
     }
     
     func drawColony() {
-        for cell in colony.cells {
+        let cellsAlive = cells.keys.filter{self.colony.cells.contains($0)}
+        let cellsDead = cells.keys.filter{!self.colony.cells.contains($0)}
+        
+        for cell in cellsAlive {
             cells[cell]?.backgroundColor = UIColor.blackColor()
+        }
+        
+        for cell in cellsDead {
+            cells[cell]?.backgroundColor = UIColor.whiteColor()
         }
     }
     
